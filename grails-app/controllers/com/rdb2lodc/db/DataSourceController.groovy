@@ -23,6 +23,7 @@ class DataSourceController {
 
 
 	def index(Integer max) {
+        //TODO: Modificar esto y la funcion list para que quede mejor programado todo
         def user = session.SPRING_SECURITY_CONTEXT?.authentication?.principal?.username
         ArrayList<User> user1 = User.findAllByUsername(user.toString())
         println(user1[0].datasource)
@@ -62,7 +63,31 @@ class DataSourceController {
             return
         }
 
+        DataSourceService dataSourceService = new DataSourceService(dataSourceInstance)
+        dataSourceService.Connect()
+        if (dataSourceService.conn == null){
+            notFound()
+            return
+        }
+
         dataSourceInstance.save flush:true
+
+        println "Conectado"
+        String[] list = dataSourceService.getTablas()
+        for (item in list){
+            Table tabla = new Table()
+            tabla.tabla_name = item
+            tabla.datasource = dataSourceInstance
+            tabla.save()
+            for (item1 in dataSourceService.getAttributes(item)){
+                println item1.cl_name
+                item1.tables = tabla
+                item1.save()
+            }
+
+        }
+
+        dataSourceService.Disconnect();
 
         request.withFormat {
             form {
