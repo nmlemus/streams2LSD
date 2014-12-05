@@ -4,6 +4,8 @@ import com.rdb2lodc.security.User
 import grails.plugins.springsecurity.Secured
 import grails.plugins.springsecurity.SpringSecurityService
 
+import javax.xml.crypto.Data
+
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 
@@ -21,13 +23,22 @@ class DataSourceController {
 
 
 	def index(Integer max) {
+        def user = session.SPRING_SECURITY_CONTEXT?.authentication?.principal?.username
+        ArrayList<User> user1 = User.findAllByUsername(user.toString())
+        println(user1[0].datasource)
         params.max = Math.min(max ?: 10, 100)
-        respond DataSource.list(params), model:[dataSourceInstanceCount: DataSource.count()]
+        List<DataSource> dataSource = DataSource.findAllByUser(user1[0])
+        respond dataSource, model:[dataSourceInstanceCount: dataSource.size()]
     }
 
 	def list(Integer max) {
+        def user = session.SPRING_SECURITY_CONTEXT?.authentication?.principal?.username
+        ArrayList<User> user1 = User.findAllByUsername(user.toString())
+        println(user1[0].datasource)
         params.max = Math.min(max ?: 10, 100)
-        respond DataSource.list(params), model:[dataSourceInstanceCount: DataSource.count()]
+        List<DataSource> dataSource = DataSource.findAllByUser(user1[0])
+        respond dataSource, model:[dataSourceInstanceCount: dataSource.size()]
+
     }
 
     def show(DataSource dataSourceInstance) {
