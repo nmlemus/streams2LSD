@@ -40,7 +40,7 @@
 				</div>
 				
 				<div class="form-group">
-					<input type='submit' id="submit" class="btn btn-success" value='${message(code: "springSecurity.login.button")}'/>
+					<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
 				</div>
 		</form>
 	</div>

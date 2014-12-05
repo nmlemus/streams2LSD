@@ -1,5 +1,7 @@
 package com.rdb2lodc.security
 
+import com.rdb2lodc.db.DataSource
+
 class User {
 
 	transient springSecurityService
@@ -11,9 +13,11 @@ class User {
 	boolean accountLocked
 	boolean passwordExpired
 
+	static hasMany = [datasource: DataSource]
+
 	static constraints = {
 		username blank: false, unique: true
-		password blank: false
+		password blank: false, password: true
 	}
 
 	static mapping = {
@@ -36,5 +40,9 @@ class User {
 
 	protected void encodePassword() {
 		password = springSecurityService.encodePassword(password)
+	}
+
+	String toString(){
+		return username
 	}
 }

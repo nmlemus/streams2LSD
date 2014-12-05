@@ -11,21 +11,27 @@
 
 		<ul class="dropdown-menu" role="menu">
 			<li class="form-container">
-				<form action="/j_spring_security_check" method="post" accept-charset="UTF-8">
+				<%-- <form role="form" id='loginForm' class='form-horizontal' action='${postUrl}' method='POST' autocomplete='off'>--%>
+				<form role="form" id='loginForm' action='${postUrl}' method='POST' accept-charset="UTF-8">
+				<%--<form action="/j_spring_security_check" method="post" accept-charset="UTF-8">--%>
 <%--				<form action="login" method="post" accept-charset="UTF-8">--%>
-					<input class="form-control" style="margin-bottom: 15px;" type="text"		placeholder="Username" id="username" name="username">
-					<input class="form-control" style="margin-bottom: 15px;" type="password"	placeholder="Password" id="password" name="password">
+					<input class='form-control col-md-4' style="margin-bottom: 15px;" type="text"		placeholder="Username"  name='j_username' id='username'>
+					<input type='password' class='form-control col-md-4' name='j_password' id='password' style="margin-bottom: 15px;" placeholder="Password" >
 					<input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me" id="remember-me" value="1">
 					<label class="string optional" for="user_remember_me"> Remember me</label>
-					<input class="btn btn-primary btn-block" type="submit" id="sign-in" value="Sign In">
-				</form>
-			</li>
-			<li class="divider"></li>
-			<li class="button-container">
-				<!-- NOTE: the renderDialog MUST be placed outside the NavBar (at least for Bootstrap 2.1.1): see bottom of main.gsp -->
-				<g:render template="/_common/modals/registerTextLink"/>
-			</li>
-		</ul>
+					<div class="form-group">
+						<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
+					</div>
+					<%--<input class="btn btn-primary btn-block" type="submit" id="submit" value="Sign In">--%>
+					<%--<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>--%>
+            </form>
+        </li>
+        <li class="divider"></li>
+        <li class="button-container">
+            <!-- NOTE: the renderDialog MUST be placed outside the NavBar (at least for Bootstrap 2.1.1): see bottom of main.gsp -->
+            <g:render template="/_common/modals/registerTextLink"/>
+        </li>
+    </ul>
 
 <%--</sec:ifNotLoggedIn>--%>
 <%--<sec:ifLoggedIn>--%>
@@ -58,6 +64,13 @@
 
 	</li>
 <%--</ul>--%>
+<script type='text/javascript'>
+	<!--
+	(function() {
+		document.forms['loginForm'].elements['j_username'].focus();
+	})();
+	// -->
+</script>
 
 <noscript>
 <ul class="nav pull-right">
