@@ -26,4 +26,12 @@ class DataSource {
 		ds_user(blank: false)
 		ds_password(blank: false, password: true)
 	}
+
+	static mapping = {
+		table "table_datasource"
+	}
+
+	String toString(){
+		return ds_name
+	}
 }

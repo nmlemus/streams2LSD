@@ -14,6 +14,10 @@ class Attributes {
     static constraints = {
     }
 
+    static mapping = {
+        table "table_attributes"
+    }
+
     String toString(){
         return cl_name
     }
