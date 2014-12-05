@@ -1,0 +1,16 @@
+<plugin name='kickstart-with-bootstrap' version='1.1.0' grailsVersion='2.3 &gt; * '>
+  <title>Kickstart with Bootstrap - Good looking websites!</title>
+  <description>Kickstart is a plugin for Grails to start your project with a good looking frontend. It provides adapted scaffolding templates for standard CRUD pages using the Bootstrap frontend framework initiated by Twitter.</description>
+  <documentation>http://grails.org/plugin/kickstart-with-bootstrap</documentation>
+  <type>KickstartWithBootstrapGrailsPlugin</type>
+  <resources>
+    <resource>KickstartConfig</resource>
+    <resource>KickstartResources</resource>
+    <resource>kickstart.KickstartFilters</resource>
+    <resource>spring.resources</resource>
+    <resource>kickstart.HomeController</resource>
+    <resource>kickstart._DemoPageController</resource>
+    <resource>kickstart._DemoPage</resource>
+    <resource>kickstart.BootstrapTagLib</resource>
+  </resources>
+</plugin>

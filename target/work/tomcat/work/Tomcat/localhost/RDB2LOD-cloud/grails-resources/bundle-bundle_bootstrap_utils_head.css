@@ -1,0 +1,718 @@
+@charset "UTF-8";
+/*!
+ * Datepicker for Bootstrap
+ *
+ * Copyright 2012 Stefan Petre
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ */
+.datepicker {
+  top: 0;
+  left: 0;
+  padding: 4px;
+  margin-top: 1px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  /*.dow {
+    border-top: 1px solid #ddd !important;
+  }*/
+
+}
+.datepicker:before {
+  content: '';
+  display: inline-block;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-bottom: 7px solid #ccc;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: -7px;
+  left: 6px;
+}
+.datepicker:after {
+  content: '';
+  display: inline-block;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-bottom: 6px solid #ffffff;
+  position: absolute;
+  top: -6px;
+  left: 7px;
+}
+.datepicker > div {
+  display: none;
+}
+.datepicker table {
+  width: 100%;
+  margin: 0;
+}
+.datepicker td,
+.datepicker th {
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.datepicker td.day:hover {
+  background: #eeeeee;
+  cursor: pointer;
+}
+.datepicker td.day.disabled {
+  color: #eeeeee;
+}
+.datepicker td.old,
+.datepicker td.new {
+  color: #999999;
+}
+.datepicker td.active,
+.datepicker td.active:hover {
+  color: #ffffff;
+  background-color: #006dcc;
+  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  border-color: #0044cc #0044cc #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #0044cc;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.datepicker td.active:hover,
+.datepicker td.active:hover:hover,
+.datepicker td.active:focus,
+.datepicker td.active:hover:focus,
+.datepicker td.active:active,
+.datepicker td.active:hover:active,
+.datepicker td.active.active,
+.datepicker td.active:hover.active,
+.datepicker td.active.disabled,
+.datepicker td.active:hover.disabled,
+.datepicker td.active[disabled],
+.datepicker td.active:hover[disabled] {
+  color: #ffffff;
+  background-color: #0044cc;
+  *background-color: #003bb3;
+}
+.datepicker td.active:active,
+.datepicker td.active:hover:active,
+.datepicker td.active.active,
+.datepicker td.active:hover.active {
+  background-color: #003399 \9;
+}
+.datepicker td span {
+  display: block;
+  width: 47px;
+  height: 54px;
+  line-height: 54px;
+  float: left;
+  margin: 2px;
+  cursor: pointer;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+.datepicker td span:hover {
+  background: #eeeeee;
+}
+.datepicker td span.active {
+  color: #ffffff;
+  background-color: #006dcc;
+  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
+  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
+  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
+  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
+  border-color: #0044cc #0044cc #002a80;
+  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+  *background-color: #0044cc;
+  /* Darken IE7 buttons by default so they stand out more given they won't have borders */
+
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  color: #fff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+.datepicker td span.active:hover,
+.datepicker td span.active:focus,
+.datepicker td span.active:active,
+.datepicker td span.active.active,
+.datepicker td span.active.disabled,
+.datepicker td span.active[disabled] {
+  color: #ffffff;
+  background-color: #0044cc;
+  *background-color: #003bb3;
+}
+.datepicker td span.active:active,
+.datepicker td span.active.active {
+  background-color: #003399 \9;
+}
+.datepicker td span.old {
+  color: #999999;
+}
+.datepicker th.switch {
+  width: 145px;
+}
+.datepicker th.next,
+.datepicker th.prev {
+  font-size: 21px;
+}
+.datepicker thead tr:first-child th {
+  cursor: pointer;
+}
+.datepicker thead tr:first-child th:hover {
+  background: #eeeeee;
+}
+.input-append.date .add-on i,
+.input-prepend.date .add-on i {
+  display: block;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
+/* Add additional stylesheets below
+-------------------------------------------------- */
+/*
+  Bootstrap's documentation styles
+  Special styles for presenting Bootstrap's documentation and examples
+*/
+/* Body and structure
+-------------------------------------------------- */
+body {
+/*   background-color: #fff; */
+/*   position: relative; */
+}
+section {
+  padding-top: 60px;
+}
+section > .row {
+  margin-bottom: 10px;
+}
+#masthead, #footer {
+  background-color: #049cd9;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
+  background-image: -webkit-linear-gradient(#004D9F, #049cd9);
+  background-image: -moz-linear-gradient(#004D9F, #049cd9);
+  background-image: -o-linear-gradient(top, #004D9F, #049cd9);
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9));
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#004D9F', endColorstr='#049cd9', GradientType=0); /* IE8 and down */
+}
+#masthead div.inner, #footer div.inner {
+  background: transparent url(resource:/kickstart/img/grid-18px.png) top center;
+  padding: 45px 0;
+  -webkit-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+     -moz-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+          box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+#masthead h1,
+#footer h1,
+#masthead p,
+#footer p {
+  color: #fff;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+#masthead p a,
+#footer p a {
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Footer
+-------------------------------------------------- */
+footer {
+  background-color: #eee;
+  min-width: 940px;
+  padding: 30px 0;
+  text-shadow: 0 1px 0 #fff;
+  border-top: 1px solid #e5e5e5;
+  -webkit-box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
+     -moz-box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
+/*          box-shadow: inset 0 5px 15px rgba(0,0,0,.025);
+*/
+}
+.footer p {
+  color: #555;
+}
+
+#masthead {
+  margin-top: 40px;
+}
+#masthead h1,
+#masthead p {
+  text-align: center;
+  margin-bottom: 9px;
+}
+#masthead h1 {
+  font-size: 54px;
+  line-height: 1;
+  text-shadow: 0 1px 2px rgba(0,0,0,.5);
+}
+#masthead p {
+  font-weight: 300;
+}
+#masthead p.lead {
+  font-size: 20px;
+  line-height: 27px;
+}
+
+div.quickstart {
+  background-color: #f5f5f5;
+  background-repeat: repeat-x;
+  background-image: -khtml-gradient(linear, left top, left bottom, from(#f9f9f9), to(#f5f5f5));
+  background-image: -moz-linear-gradient(#f9f9f9, #f5f5f5);
+  background-image: -ms-linear-gradient(#f9f9f9, #f5f5f5);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f9f9f9), color-stop(100%, #f5f5f5));
+  background-image: -webkit-linear-gradient(#f9f9f9, #f5f5f5);
+  background-image: -o-linear-gradient(#f9f9f9, #f5f5f5);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#f5f5f5', GradientType=0)";
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f9f9f9', endColorstr='#f5f5f5', GradientType=0);
+  background-image: linear-gradient(#f9f9f9, #f5f5f5);
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #eee;
+}
+div.quickstart div.row {
+  margin: 0 -20px;
+  -webkit-box-shadow: 1px 0 0 #f9f9f9;
+     -moz-box-shadow: 1px 0 0 #f9f9f9;
+          box-shadow: 1px 0 0 #f9f9f9;
+}
+div.quickstart div.columns {
+  width: 285px;
+  height: 117px;
+  margin-left: 0;
+  padding: 17px 20px 26px;
+  border-left: 1px solid #eee;
+  -webkit-box-shadow: inset 1px 0 0 #f9f9f9;
+     -moz-box-shadow: inset 1px 0 0 #f9f9f9;
+          box-shadow: inset 1px 0 0 #f9f9f9;
+}
+div.quickstart div.columns:last-child {
+  border-right: 1px solid #eee;
+  width: 286px;
+}
+div.quickstart h6,
+div.quickstart p {
+  line-height: 18px;
+  text-align: center;
+  margin-bottom: 9px;
+  color: #333;
+}
+div.quickstart h6 {
+  color: #999;
+}
+div.quickstart form textarea {
+  display: block;
+  width: 275px;
+  height: auto;
+  margin: 0 0 9px;
+  line-height: 21px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+#footer {
+  margin-top: 80px;
+}
+#footer p {
+  margin-bottom: 0;
+  color: rgba(255,255,255,.8)
+}
+#footer p.right {
+  float: right;
+}
+/* Special grid styles
+-------------------------------------------------- */
+.show-grid {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.show-grid .column, .show-grid .columns {
+  background-color: #eee;
+  text-align: center;
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+  height: 30px;
+  line-height: 30px;
+}
+.show-grid:hover .column, .show-grid:hover .columns {
+  background: rgba(0, 0, 0, 0.25);
+}
+/* Render mini layout previews
+-------------------------------------------------- */
+div.mini-layout {
+  height: 340px;
+  margin-bottom: 20px;
+  padding: 9px;
+  border: 1px solid #ccc;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+          border-radius: 6px;
+  -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
+     -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
+          box-shadow: 0 1px 3px rgba(0, 0, 0, 0.125);
+}
+div.mini-layout div {
+  -webkit-border-radius: 3px;
+     -moz-border-radius: 3px;
+          border-radius: 3px;
+}
+div.mini-layout div.mini-layout-body {
+  background-color: #dceaf4;
+  margin: 0 auto;
+  width: 340px;
+  height: 340px;
+}
+div.mini-layout.fluid div.mini-layout-sidebar,
+div.mini-layout.fluid div.mini-layout-header,
+div.mini-layout.fluid div.mini-layout-body {
+  float: left;
+}
+div.mini-layout.fluid div.mini-layout-sidebar {
+  background-color: #bbd8e9;
+  width: 90px;
+  height: 340px;
+}
+div.mini-layout.fluid div.mini-layout-body {
+  width: 300px;
+  margin-left: 10px;
+}
+/* Topbar special styles
+-------------------------------------------------- */
+div.topbar-wrapper {
+  position: relative;
+  height: 40px;
+  margin: 5px 0 15px;
+}
+div.topbar-wrapper div.topbar {
+  position: absolute;
+  margin: 0 -20px;
+}
+div.topbar-wrapper div.topbar .topbar-inner {
+  padding-left: 20px;
+  padding-right: 20px;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+/* Popover docs
+-------------------------------------------------- */
+div.popover-well {
+  min-height: 160px;
+}
+
+div.popover-well div.popover {
+  display: block;
+}
+
+div.popover-well div.popover-wrapper {
+  width: 50%;
+  height: 160px;
+  float: left;
+  margin-left: 55px;
+  position: relative;
+}
+
+div.popover-well div.popover-menu-wrapper {
+  height: 80px;
+}
+
+img.large-bird {
+  margin: 5px 0 0 310px;
+  opacity: .1;
+}
+
+/* Pretty Print
+-------------------------------------------------- */
+PRE.prettyprint {
+  overflow: hidden;
+}
+/** 
+ * CSS fix for the logo & brand in the topbar/navbar section
+ */
+
+body {
+	padding-top: 50px;
+}
+
+.navbar img.logo	{ 
+/*	max-height: 20px;  */
+	margin-top: -3px;
+}
+.navbar .brand		{ padding: 10px 20px 10px 20px; }
+.navbar .version	{ font-size: 60%; line-height: 60%; }
+.navbar-inverse .navbar-inner {
+    background-image: -moz-linear-gradient(center top , #444444, #111111);
+}
+/* Bootstrap 3 fixes */
+.navbar-brand {
+/* 	margin-left: 0px; */
+	line-height: 18px;
+}
+
+.navbar-form {
+    margin:	0;
+    padding-left:	0px;
+    padding-bottom:	0px;
+    padding-top:	8px;
+}
+
+.navbar-form .nav-search {
+    margin-top:	4px;
+	height: 26px;
+}
+
+.dropdown-menu .form-container {
+	padding: 15px 15px 10px 15px; 
+}
+.dropdown-menu .button-container {
+	padding: 1px 15px 10px 15px; 
+}
+.dropdown-menu .form-container form {
+	padding: 0;
+	margin:  0; 
+}
+.dropdown-menu .form-container form label {
+	color: #999;
+}
+.modal form {
+	margin-bottom: 0;
+}
+form p:last-child {
+	margin-bottom: 0;
+}
+form p:last-child input {
+	margin-bottom: 0;
+}
+.modal form div:last-child{
+	margin-bottom: 0;
+}
+.modal-header h3 {
+	color: #555555;
+}
+/** 
+ * CSS for the Header section (blue background, etc.)
+ */
+
+.jumbotron {
+    margin-bottom: 0px;
+}
+
+#Header {
+/* 	background-color: #049cd9; */
+/* 	background-repeat: no-repeat; */
+/* 	background-image: -webkit-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9)); */
+/* 	background-image: -webkit-linear-gradient(#004D9F, #049cd9); */
+/* 	background-image: -moz-linear-gradient(#004D9F, #049cd9); */
+/* 	background-image: -o-linear-gradient(top, #004D9F, #049cd9); */
+/* 	background-image: -khtml-gradient(linear, left top, left bottom, from(#004D9F), to(#049cd9)); */
+/* 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#004D9F', endColorstr='#049cd9', GradientType=0); IE8 and down */
+	
+/* 	margin: 40px 0 0 0; */
+}
+
+#Header .inner {
+	background: transparent url(resource:/kickstart/img/grid-18px.png) top center;
+	padding: 60px 0;
+	-webkit-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+	   -moz-box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+			box-shadow: inset 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+#Header .title		{ 
+/* 	font-size: 72px;  */
+/* 	line-height: 72px;  */
+/* 	font-weight: normal;  */
+/* 	text-decoration: none;  */
+	text-align: center; 
+/* 	color: #fff;  */
+}
+#Header .lead		{ font-size: 18px; line-height: 18px; font-weight: normal; text-decoration: none; text-align: center; color: #fff; }
+
+
+footer {
+	margin-top: 70px;
+}
+.unstyled {
+	list-style-type: none;
+	padding-left: 0;
+}
+
+@media (max-width: 980px) {
+	body {
+		padding-top: 0px;
+	}
+	#Header {
+		margin: 0px -20px 0px -20px;
+	}
+	#Header .inner {
+		padding: 80px 20px;
+	}
+	footer {
+		min-width: 0;
+	}
+	.navbar-fixed-top {
+		position: static;
+    	margin-bottom: 0px !important;
+	}
+}
+
+/* 
+ * Slight modification to Bootstrap in order to improve presentation 
+ */
+
+#Content {
+	padding-top: 1em;
+}
+
+section.first {
+	padding-top: 0px;
+}
+
+/*
+ * Alternating table row colors
+ */
+
+.odd {
+	background: #f0f0f0;
+}
+.even {
+	background: #ffffff;
+}
+
+/*
+ * Improve presentation of multiple alerts
+ */
+
+.alert ul {
+	margin-left: 0;
+	margin-bottom: 0;
+	padding-top:6px;
+	text-decoration: none;	
+	list-style-type: none;
+}
+.alert li {
+	margin-bottom: 6px;
+	text-decoration: none;	
+	list-style-type: none;
+}
+
+/*
+ * Improve presentation of call to actions on frontpage
+ */
+
+.icon-image-huge:before {
+    font-size:		120px;
+    line-height:	120px;
+}
+
+.center {
+    text-align:		center;
+    margin: 0 auto;
+}
+
+/*
+ * Big Messages (Errors, etc.)
+ */
+ section#Error {
+	padding-top:0;	
+}
+.big-message {
+    color: #5A5A5A;
+    margin: 8em 0;
+    text-align: center;
+}
+.big-message h1 {
+    font-size: 120px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    line-height: 1em;
+    margin: 0.0em 0 0.5em;
+}
+.big-message h2 {
+    font-size: 30px;
+	font-weight: 200;
+    margin: 1.0em 0 0.5em;
+}
+.big-message p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin: 1.0em 0 0.5em;
+}
+.big-message .actions {
+    margin: 5.0em 0 2.0em 0;
+}
+.big-message .actions a {
+    margin: 0 1.0em;
+	text-decoration: none;
+}
+
+/**
+ * Small correction for the radio-button like checkbox switch
+ */
+.radiocheckbox {
+	width: 206px;
+	display: inline-block;
+	margin-top: 2px;
+	margin-right: 14px;
+}
+
+.frontpageImage {
+	height: 100px;
+}
+
+
+/* .margin-top-none		{ margin-top: 0em; } */
+/* .margin-top-mini		{ margin-top: 0.5em; } */
+/* .margin-top-small		{ margin-top: 1em; } */
+/* .margin-top-medium		{ margin-top: 2em; } */
+/* .margin-top-large		{ margin-top: 4em; } */
+/* .margin-top-xlarge		{ margin-top: 8em; } */
+
+/* .margin-bottom-none		{ margin-bottom: 0em; } */
+/* .margin-bottom-mini		{ margin-bottom: 0.5em; } */
+/* .margin-bottom-small	{ margin-bottom: 1em; } */
+/* .margin-bottom-medium	{ margin-bottom: 2em; } */
+/* .margin-bottom-large	{ margin-bottom: 4em; } */
+/* .margin-bottom-xlarge	{ margin-bottom: 8em; } */
+
+.margin-top-none		{ margin-top:  0px; }
+.margin-top-mini		{ margin-top:  2px; }
+.margin-top-small		{ margin-top:  5px; }
+.margin-top-medium		{ margin-top: 10px; }
+.margin-top-large		{ margin-top: 15px; }
+.margin-top-xlarge		{ margin-top: 20px; }
+
+.margin-bottom-none		{ margin-bottom:  0px; }
+.margin-bottom-mini		{ margin-bottom:  2px; }
+.margin-bottom-small	{ margin-bottom:  5px; }
+.margin-bottom-medium	{ margin-bottom: 10px; }
+.margin-bottom-large	{ margin-bottom: 15px; }
+.margin-bottom-xlarge	{ margin-bottom: 20px; }
+
+.padding-left-none		{ padding-left:  0px; }
+.padding-left-mini		{ padding-left:  2px; }
+.padding-left-small		{ padding-left:  5px; }
+.padding-left-medium	{ padding-left: 10px; }
+.padding-left-large		{ padding-left: 15px; }
+.padding-left-xlarge	{ padding-left: 20px; }
+
+.padding-right-none		{ padding-right:  0px; }
+.padding-right-mini		{ padding-right:  2px; }
+.padding-right-small	{ padding-right:  5px; }
+.padding-right-medium	{ padding-right: 10px; }
+.padding-right-large	{ padding-right: 15px; }
+.padding-right-xlarge	{ padding-right: 20px; }
+
+
