@@ -12,6 +12,11 @@ class Table {
 	static hasMany = [attributes: Attributes]
 
 	static constraints = {
+
+	}
+
+	static mapping = {
+		table "table_table"
 	}
 
 	String toString(){
