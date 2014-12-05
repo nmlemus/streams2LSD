@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuite errors="1" failures="0" hostname="Estela" name="org.junit.runner.manipulation.Filter" tests="1" time="0.085" timestamp="2014-12-05T02:17:58">
+  <properties />
+  <testcase classname="org.junit.runner.manipulation.Filter" name="initializationError" time="0.078">
+    <error message="No tests found matching grails test target pattern filter from org.junit.runner.Request$1@592c3f10" type="java.lang.Exception">java.lang.Exception: No tests found matching grails test target pattern filter from org.junit.runner.Request$1@592c3f10
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.grails.test.spock.GrailsSpecTestType.doRun(GrailsSpecTestType.groovy:149)
+	at org.codehaus.groovy.grails.test.support.GrailsTestTypeSupport.run(GrailsTestTypeSupport.groovy:121)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runTests(GrailsProjectTestRunner.groovy:415)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.processTests(GrailsProjectTestRunner.groovy:395)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1270)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1086)
+	at groovy.lang.ExpandoMetaClass.invokeMethod(ExpandoMetaClass.java:1110)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:910)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1031)
+	at groovy.lang.ExpandoMetaClass.invokeMethod(ExpandoMetaClass.java:1110)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:910)
+	at org.codehaus.groovy.runtime.callsite.PogoMetaClassSite.callCurrent(PogoMetaClassSite.java:66)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCallCurrent(CallSiteArray.java:49)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:133)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.callCurrent(AbstractCallSite.java:141)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner$_runAllTests_closure7.doCall(GrailsProjectTestRunner.groovy:313)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1270)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1086)
+	at groovy.lang.ExpandoMetaClass.invokeMethod(ExpandoMetaClass.java:1110)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:910)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.callClosureForMapEntry(DefaultGroovyMethods.java:3873)
+	at org.codehaus.groovy.runtime.DefaultGroovyMethods.each(DefaultGroovyMethods.java:1354)
+	at org.codehaus.groovy.runtime.dgm$149.invoke(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite$PojoMetaMethodSiteNoUnwrapNoCoerce.invoke(PojoMetaMethodSite.java:271)
+	at org.codehaus.groovy.runtime.callsite.PojoMetaMethodSite.call(PojoMetaMethodSite.java:53)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runAllTests(GrailsProjectTestRunner.groovy:299)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runAllTests(GrailsProjectTestRunner.groovy:214)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner.runAllTests(GrailsProjectTestRunner.groovy)
+	at org.codehaus.groovy.grails.test.runner.GrailsProjectTestRunner$runAllTests$0.call(Unknown Source)
+	at org.codehaus.groovy.runtime.callsite.CallSiteArray.defaultCall(CallSiteArray.java:45)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:108)
+	at org.codehaus.groovy.runtime.callsite.AbstractCallSite.call(AbstractCallSite.java:116)
+	at org.codehaus.groovy.grails.cli.fork.testing.ForkedGrailsTestRunner.runInstance(ForkedGrailsTestRunner.groovy:128)
+	at org.codehaus.groovy.grails.cli.fork.ForkedGrailsProjectClassExecutor.run(ForkedGrailsProjectClassExecutor.groovy:74)
+	at org.codehaus.groovy.grails.cli.fork.testing.ForkedGrailsTestRunner.main(ForkedGrailsTestRunner.groovy:75)
+</error>
+  </testcase>
+  <system-out><![CDATA[--Output from initializationError--
+]]></system-out>
+  <system-err><![CDATA[--Output from initializationError--
+]]></system-err>
+</testsuite>
