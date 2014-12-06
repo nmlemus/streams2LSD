@@ -12,7 +12,7 @@ class BootStrap {
         testUser1.save(flush: true)
 
         UserRole.create(testUser, adminRole, true)
-        UserRole.create(testUser1, adminRole, true)
+        UserRole.create(testUser1, userRole, true)
     }
     def destroy = {
     }

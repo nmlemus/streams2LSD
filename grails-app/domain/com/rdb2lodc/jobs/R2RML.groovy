@@ -10,11 +10,11 @@ import com.rdb2lodc.security.User
 class R2RML {
 
     String r2rml_name
-    DataSource dataSource
-    byte[] r2rml
+    String r2rml
+    String directory
 
-    static	belongsTo	= [user1: User]	// tells GORM to cascade commands: e.g., delete this object if the "parent" is deleted.
-//	static	hasOne		= []	// tells GORM to associate another domain object as an owner in a 1-1 mapping
+    static	belongsTo	= [datasources: DataSource]	// tells GORM to cascade commands: e.g., delete this object if the "parent" is deleted.
+    static	hasOne		= [db2triplesjob: DB2TriplesJob]
 //	static	hasMany		= []	// tells GORM to associate other domain objects for a 1-n or n-m mapping
 //	static	mappedBy	= []	// specifies which property should be used in a mapping 
 
@@ -22,14 +22,12 @@ class R2RML {
     }
 
     static constraints = {
-        r2rml_name(blank: false)
+        r2rml_name(unique: true, blank: false)
+        r2rml(blank: false)
+        directory(unique: false)
     }
 
-    /*
-     * Methods of the Domain Class
-     */
-//	@Override	// Override toString for a nicer / more descriptive UI 
-//	public String toString() {
-//		return "${name}";
-//	}
+    public String toString() {
+    	return r2rml_name
+    }
 }

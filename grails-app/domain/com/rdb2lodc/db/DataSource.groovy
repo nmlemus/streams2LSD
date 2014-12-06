@@ -1,5 +1,7 @@
 package com.rdb2lodc.db
 
+import com.rdb2lodc.jobs.DB2TriplesJob
+import com.rdb2lodc.jobs.R2RML
 import com.rdb2lodc.security.User
 
 /**
@@ -16,7 +18,8 @@ class DataSource {
 	String ds_password
 
 	static belongsTo = [user: User]
-	static hasMany = [tables: Table]
+	static hasMany = [tables: Table, r2rml: R2RML, db2triplesjob: DB2TriplesJob]
+	static mappedBy = [tables: "datasource", r2rml: "datasources", db2triplesjob: "datasource1"]
 
 	static constraints = {
 		ds_name(blank: false)

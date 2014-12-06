@@ -1,0 +1,125 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+@prefix dc: <http://purl.org/dc/dcmitype/>.
+@prefix bibo: <http://purl.org/ontology/bibo/>.
+@prefix event: <http://purl.org/NET/c4dm/event.owl#>.
+@prefix res: <http://www.medsci.ox.ac.uk/vocab/researchers/0.1/>.
+
+
+<#TriplesMap1>
+    rr:logicalTable [ rr:tableName "author" ];
+    rr:subjectMap [
+			rr:template "http://data.kdd.com/author/{id}";
+        		rr:class foaf:Maker;
+    			];
+
+    rr:predicateObjectMap [
+			rr:predicate foaf:name;
+        		rr:objectMap [ rr:column "name" ];
+   			 ];
+
+    rr:predicateObjectMap [
+        		rr:predicate foaf:organization;
+        		rr:objectMap [ rr:column "affiliation" ];
+    			].
+
+
+/*-------------- Conference Table*----------------------/
+<#TriplesMap2>
+	rr:logicalTable [ rr:tableName "conference" ];
+	rr:subjectMap [
+		rr:template "http://data.kdd.com/conference/{id}";	
+		rr:class dc:Event;
+		];
+
+rr:predicateObjectMap [
+			rr:predicate dc:title;
+        		rr:objectMap [ rr:column "fullname" ];
+   			 ];
+
+
+
+	rr:predicateObjectMap [
+			rr:predicate foaf:homepage;
+        		rr:objectMap [ rr:column "homepage" ];
+   			 ].
+
+/*-------------- Journal Table *----------------------/
+
+<#TriplesMap3>
+	rr:logicalTable [ rr:tableName "journal" ];
+	rr:subjectMap [
+		rr:template "http://data.kdd.com/journal/{id}";	
+		rr:class bibo:Journal;
+
+		];
+
+rr:predicateObjectMap [
+			rr:predicate dc:title;
+        		rr:objectMap [ rr:column "fullname" ];
+   			 ];
+rr:predicateObjectMap [
+			rr:predicate foaf:homepage;
+        		rr:objectMap [ rr:column "homepage" ];
+   			 ].
+
+
+/*-------------- Paper Table*----------------------/
+<#TriplesMap4>
+
+	rr:logicalTable [ rr:tableName "paper" ];
+		rr:subjectMap [
+			rr:template "http://data.kdd.com/paper/{id}";	
+			rr:class dc:BibliographicResource;
+		];
+
+rr:predicateObjectMap [
+			rr:predicate dc:title;
+        		rr:objectMap [ rr:column "title" ];
+   	];
+
+rr:predicateObjectMap [
+		rr:predicate dc:date;
+        	rr:objectMap [ rr:column "year" ];
+   	];
+
+
+rr:predicateObjectMap [
+		rr:predicate res:Keyword;
+        	rr:objectMap [ rr:column "keyword" ];
+   	];
+
+
+/* solo me falta como parcear los join de las 2 tablas en R2rml
+
+    rr:predicateObjectMap [
+        rr:predicate dc:event;
+        rr:objectMap [
+            rr:parentTriplesMap <#TriplesMap2>;
+            rr:joinCondition [
+                rr:child "conferenceid";
+                rr:parent "id";
+            ];
+        ];
+    ];
+
+ rr:predicateObjectMap [
+        rr:predicate dc:bibliographicResource;
+        rr:objectMap [
+            rr:parentTriplesMap <#TriplesMap3>;
+            rr:joinCondition [
+                rr:child "journalid";
+                rr:parent "id";
+            ];
+        ];
+    ].
+
+http://purl.org/ontology/bibo/presentedAt 
+http://purl.org/ontology/bibo/presents
+http://purl.org/ontology/bibo/shortTitle 
+http://purl.org/ontology/bibo/Journal
+
+
+
+
+

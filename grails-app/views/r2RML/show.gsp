@@ -26,6 +26,22 @@
 			<tr class="prop">
 				<td valign="top" class="name"><g:message code="r2RML.r2rml.label" default="R2rml" /></td>
 				
+				<td valign="top" class="value">${fieldValue(bean: r2RMLInstance, field: "r2rml")}</td>
+				
+			</tr>
+		
+			<tr class="prop">
+				<td valign="top" class="name"><g:message code="r2RML.directory.label" default="Directory" /></td>
+				
+				<td valign="top" class="value">${fieldValue(bean: r2RMLInstance, field: "directory")}</td>
+				
+			</tr>
+		
+			<tr class="prop">
+				<td valign="top" class="name"><g:message code="r2RML.datasources.label" default="Datasources" /></td>
+				
+				<td valign="top" class="value"><g:link controller="dataSource" action="show" id="${r2RMLInstance?.datasources?.id}">${r2RMLInstance?.datasources?.encodeAsHTML()}</g:link></td>
+				
 			</tr>
 		
 		</tbody>

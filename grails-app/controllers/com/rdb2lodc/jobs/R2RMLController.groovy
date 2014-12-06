@@ -1,13 +1,17 @@
 package com.rdb2lodc.jobs
 
+import com.rdb2lodc.db.DataSource
+import grails.plugins.springsecurity.Secured
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
+import grails.plugins.springsecurity.SpringSecurityService
 
 /**
  * R2RMLController
  * A controller class handles incoming web requests and performs actions such as redirects, rendering views and so on.
  */
+@Secured(['ROLE_ADMIN'])
 @Transactional(readOnly = true)
 class R2RMLController {
 
@@ -32,26 +36,37 @@ class R2RMLController {
     }
 
     @Transactional
-    def save(R2RML r2RMLInstance) {
-        if (r2RMLInstance == null) {
-            notFound()
-            return
-        }
+    def save() {
+        def r2RMLInstance = new R2RML()
+        def uploadedFile = request.getFile('r2rml')
+        if(!uploadedFile.empty){
+            println "Class: ${uploadedFile.class}"
+            println "Name: ${uploadedFile.name}"
+            println "OriginalFileName: ${uploadedFile.originalFilename}"
+            println "Size: ${uploadedFile.size}"
+            println "ContentType: ${uploadedFile.contentType}"
 
-        if (r2RMLInstance.hasErrors()) {
-            respond r2RMLInstance.errors, view:'create'
-            return
-        }
+            def webRootDir = servletContext.getRealPath("/")
+            def userDir = new File(webRootDir, "/r2rml/${session.SPRING_SECURITY_CONTEXT?.authentication?.principal?.username}/")
+            userDir.mkdirs()
+            uploadedFile.transferTo( new File( userDir, uploadedFile.originalFilename))
+            r2RMLInstance.setR2rml_name(params.r2rml_name)
+            r2RMLInstance.setR2rml("${uploadedFile.originalFilename}")
+            r2RMLInstance.setDirectory(userDir.toString())
+            r2RMLInstance.setDatasources(DataSource.findById(params.datasources.id))
 
-        r2RMLInstance.save flush:true
 
-        request.withFormat {
-            form {
-                flash.message = message(code: 'default.created.message', args: [message(code: 'r2RMLInstance.label', default: 'R2RML'), r2RMLInstance.id])
-                redirect r2RMLInstance
-            }
-            '*' { respond r2RMLInstance, [status: CREATED] }
+            println("-----------------------------------")
+            println(r2RMLInstance.r2rml_name)
+            println(r2RMLInstance.directory)
+            println(r2RMLInstance.r2rml)
+            println(r2RMLInstance.datasources)
+            println(r2RMLInstance.id)
+            println("-----------------------------------")
+            r2RMLInstance.save()
         }
+        respond r2RMLInstance, view:'show'
+
     }
 
     def edit(R2RML r2RMLInstance) {

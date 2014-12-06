@@ -21,6 +21,10 @@
 			
 				<g:sortableColumn property="r2rml" title="${message(code: 'r2RML.r2rml.label', default: 'R2rml')}" />
 			
+				<g:sortableColumn property="directory" title="${message(code: 'r2RML.directory.label', default: 'Directory')}" />
+			
+				<th><g:message code="r2RML.datasources.label" default="Datasources" /></th>
+			
 			</tr>
 		</thead>
 		<tbody>
@@ -30,6 +34,10 @@
 				<td><g:link action="show" id="${r2RMLInstance.id}">${fieldValue(bean: r2RMLInstance, field: "r2rml_name")}</g:link></td>
 			
 				<td>${fieldValue(bean: r2RMLInstance, field: "r2rml")}</td>
+			
+				<td>${fieldValue(bean: r2RMLInstance, field: "directory")}</td>
+			
+				<td>${fieldValue(bean: r2RMLInstance, field: "datasources")}</td>
 			
 			</tr>
 		</g:each>

@@ -15,8 +15,8 @@ class User {
 	boolean accountLocked
 	boolean passwordExpired
 
-	static hasMany = [datasource: DataSource, db2triplesjob: DB2TriplesJob, r2rml: R2RML]
-	static mappedBy = [datasource: "user", db2triplesjob: "users", r2rml: "user1"]
+	static hasMany = [datasource: DataSource]
+	static mappedBy = [datasource: "user"]
 
 	static constraints = {
 		username blank: false, unique: true

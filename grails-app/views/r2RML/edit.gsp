@@ -18,7 +18,7 @@
 		</div>
 		</g:hasErrors>
 
-		<g:form method="post" class="form-horizontal" role="form"  enctype="multipart/form-data">
+		<g:form method="post" class="form-horizontal" role="form" >
 			<g:hiddenField name="id" value="${r2RMLInstance?.id}" />
 			<g:hiddenField name="version" value="${r2RMLInstance?.version}" />
 			<g:hiddenField name="_method" value="PUT" />
