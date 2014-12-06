@@ -124,3 +124,11 @@ log4j = {
 grails.plugins.springsecurity.userLookup.userDomainClassName = 'com.rdb2lodc.security.User'
 grails.plugins.springsecurity.userLookup.authorityJoinClassName = 'com.rdb2lodc.security.UserRole'
 grails.plugins.springsecurity.authority.className = 'com.rdb2lodc.security.Role'
+
+fileuploader {
+    r2rml {
+        allowedExtensions = ["n3"]
+        path = "/home/noel/"
+    }
+
+}
