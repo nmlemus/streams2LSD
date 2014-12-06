@@ -54,8 +54,6 @@
                         href="http://creativecommons.org/licenses/by/3.0/">CC BY 3.0</a>.</p>
             </div>
         </div>
-
-
         <p class="pull-right"><a href="#">Back to top</a></p>
     </div>
 </footer>
