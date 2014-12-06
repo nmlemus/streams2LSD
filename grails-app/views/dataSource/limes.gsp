@@ -37,7 +37,13 @@
 </head>
 
 <body>
+<content tag="header">
+    <!-- Empty Header -->
+</content>
+<div class="page-header">
+    <h1>LIMES</h1>
 
+</div>
     <script type="text/javascript">
         $(document).ready(function() {
 
@@ -147,8 +153,18 @@
 
 
 
-
-<div align="center" style="vertical-align:top; margin-top: 70px" >
+<div class="row">
+    <div class="col-md-4">
+        <td style='width:430px; height: 200px '>
+            <b>Recomended External Sources:</b><br/>
+            <div id='${lstBox1}'>
+            </div>
+        </td>
+    </div>
+    <div class="col-md-4">.col-md-4</div>
+    <div class="col-md-4">.col-md-4</div>
+</div>
+<div class="form-horizontal col-sm-6" align="center" style="vertical-align:top; margin-top: 70px" >
     <table style='width:900px;height: 300px; ;'>
         <tbody>
         <tr>
@@ -184,7 +200,7 @@
 
 
 
-<div>
+<div class="container">
     <table align="center" width="950px">
         <td height="1000px" width="950px" valign="top" align="center" >
 

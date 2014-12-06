@@ -10,11 +10,10 @@
 	<section id="intro" class="first">
 		<h1>Welcome to Kickstart with Bootstrap 3.0.3 for Grails 2.3</h1>
 		<p>
-			Congratulations, you have successfully started your first
-			Grails application with the Kickstart extension! At the moment this
-			is the default page, feel free to modify it to either redirect to a
-			controller or display whatever content you may choose.
+
 		</p>
+		<img class="frontpageImage" style="width:1000px;height:600px" align="top" src="${resource(dir: 'images',file: 'application.png')}" />
+
 
 		<h2>Introduction</h2>
 		<p>
@@ -27,10 +26,10 @@
 			general GSPs pages (e.g., about.gsp), a minimal logging/orientation
 			Filter, and a language switcher.
 		</p>
-		<g:link class="btn btn-large btn-primary" controller="nextSteps">Next Steps</g:link>
+
 	</section>
 
-	<section id="info">
+	<%--<section id="info">
 		<div class="row">
 	    	<div class="col-md-4">
 		    	<div class="center">
@@ -87,7 +86,7 @@
 				<p>Kickstart contains several pages as starting points for the average website such as an About Page, Contact Page, 404, etc.</p>
 			</div>
 	    </div>
-	</section>
+	</section>--%>
 
 </body>
 
