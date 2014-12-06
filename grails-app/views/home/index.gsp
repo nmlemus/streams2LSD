@@ -15,6 +15,7 @@
 			is the default page, feel free to modify it to either redirect to a
 			controller or display whatever content you may choose.
 		</p>
+
 		<h2>Introduction</h2>
 		<p>
 			Kickstart is an extension for Grails in order to start your

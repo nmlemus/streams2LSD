@@ -19,7 +19,7 @@ class DataSource {
 	static hasMany = [tables: Table]
 
 	static constraints = {
-		ds_name(blank: false, unique: true)
+		ds_name(blank: false)
 		ds_type(inList: ['PostgreSQL', 'MySQL'])
 		ds_host(blank: false)
 		ds_port(blank: false)
