@@ -1,0 +1,17 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#>.
+@prefix foaf: <http://xmlns.com/foaf/0.1/>.
+
+<#TriplesMap1>
+    rr:logicalTable [ rr:tableName "author" ];
+    rr:subjectMap [
+rr:template "http://data.kdd.com/author/{id}";
+        rr:class foaf:maker;
+    ];
+    rr:predicateObjectMap [
+rr:predicate foaf:name;
+        rr:objectMap [ rr:column "name" ];
+    ];
+rr:predicateObjectMap [
+        rr:predicate foaf:organization;
+        rr:objectMap [ rr:column "affiliation" ];
+    ].

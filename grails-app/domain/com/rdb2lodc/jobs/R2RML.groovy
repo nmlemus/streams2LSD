@@ -14,15 +14,16 @@ class R2RML {
     String directory
 
     static	belongsTo	= [datasources: DataSource]	// tells GORM to cascade commands: e.g., delete this object if the "parent" is deleted.
-    static	hasOne		= [db2triplesjob: DB2TriplesJob]
+//    static	hasOne		= [db2triplesjob: DB2TriplesJob]
 //	static	hasMany		= []	// tells GORM to associate other domain objects for a 1-n or n-m mapping
 //	static	mappedBy	= []	// specifies which property should be used in a mapping 
 
     static mapping = {
+
     }
 
     static constraints = {
-        r2rml_name(unique: true, blank: false)
+        r2rml_name(blank: false)
         r2rml(blank: false)
         directory(unique: false)
     }

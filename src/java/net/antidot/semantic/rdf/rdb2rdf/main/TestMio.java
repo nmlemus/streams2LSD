@@ -49,7 +49,7 @@ public class TestMio {
         // Init parameters
         String mode = "r2rml";
         String baseURI = "http://foo.example/DB/";
-        String output = "/home/noel/output_test1.rdf";
+        String output = "/home/noel/output_test4.rdf";
         String r2rmlFile = "/home/noel/Conference_r2rmlMapping.n3";
         RDFFormat rdfFormat = RDFFormat.TURTLE; // Turtle by default
 

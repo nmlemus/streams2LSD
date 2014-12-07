@@ -1,5 +1,6 @@
 package com.rdb2lodc.jobs
 
+import net.antidot.semantic.rdf.rdb2rdf.main.*
 
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
@@ -28,6 +29,10 @@ class DB2TriplesJobController {
     }
 
     def create() {
+        respond new DB2TriplesJob(params)
+    }
+
+    def createJob() {
         respond new DB2TriplesJob(params)
     }
 
@@ -108,5 +113,30 @@ class DB2TriplesJobController {
             }
             '*' { render status: NOT_FOUND }
         }
+    }
+
+    def executeJob(DB2TriplesJob DB2TriplesJobInstance){
+
+        println(DB2TriplesJobInstance.baseURI)
+
+        runAsync {
+            DB2TriplesService test1 = new DB2TriplesService()
+            test1.runDB2Triples(DB2TriplesJobInstance)
+            println "done!"
+        }
+        render "Trabajo corriendo en el background"
+
+    }
+
+    def execute() {
+
+        println("Iniciando el trabajo")
+        runAsync {
+            TestMio test1 = new TestMio()
+            test1.PruebaExec()
+            println "done!"
+        }
+        render "Trabajo corriendo en el background"
+
     }
 }

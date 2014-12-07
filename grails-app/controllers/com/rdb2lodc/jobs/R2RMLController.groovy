@@ -12,7 +12,7 @@ import grails.plugins.springsecurity.SpringSecurityService
  * A controller class handles incoming web requests and performs actions such as redirects, rendering views and so on.
  */
 @Secured(['ROLE_ADMIN'])
-@Transactional(readOnly = true)
+@Transactional(readOnly = false)
 class R2RMLController {
 
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
@@ -61,11 +61,10 @@ class R2RMLController {
             println(r2RMLInstance.directory)
             println(r2RMLInstance.r2rml)
             println(r2RMLInstance.datasources)
-            println(r2RMLInstance.id)
             println("-----------------------------------")
             r2RMLInstance.save()
         }
-        respond r2RMLInstance, view:'show'
+        respond r2RMLInstance, view:'edit'
 
     }
 

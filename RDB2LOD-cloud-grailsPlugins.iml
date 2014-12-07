@@ -31,6 +31,9 @@
     <content url="file://$MODULE_DIR$/target/work/plugins/database-migration-1.4.0">
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/database-migration-1.4.0/src/groovy" isTestSource="false" />
     </content>
+    <content url="file://$MODULE_DIR$/target/work/plugins/executor-0.3">
+      <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/executor-0.3/src/groovy" isTestSource="false" />
+    </content>
     <content url="file://$MODULE_DIR$/target/work/plugins/hibernate-3.6.10.16">
       <sourceFolder url="file://$MODULE_DIR$/target/work/plugins/hibernate-3.6.10.16/src/java" isTestSource="false" />
     </content>
