@@ -1,5 +1,6 @@
 package com.rdb2lodc.jobs;
 
+import com.hp.hpl.jena.graph.Triple;
 import com.rdb2lodc.db.DataSource;
 import net.antidot.semantic.rdf.model.impl.sesame.SesameDataSet;
 import net.antidot.semantic.rdf.rdb2rdf.dm.core.DirectMapper;
@@ -10,9 +11,12 @@ import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.InvalidR2RMLSyntaxExcept
 import net.antidot.semantic.rdf.rdb2rdf.r2rml.exception.R2RMLDataError;
 import net.antidot.sql.model.core.DriverType;
 import net.antidot.sql.model.core.SQLConnector;
+import org.apache.jena.riot.RDFDataMgr;
+import org.apache.jena.riot.lang.CollectorStreamTriples;
 import org.openrdf.repository.RepositoryException;
 import org.openrdf.rio.RDFFormat;
 import org.openrdf.rio.RDFParseException;
+import virtuoso.jena.driver.VirtGraph;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -47,9 +51,10 @@ public class DB2TriplesService {
         // Init parameters
         String mode = db2TriplesJob.getMode();
         String baseURI = db2TriplesJob.getBaseURI();
-        String output = db2TriplesJob.getR2RML().getDirectory() + "/" + db2TriplesJob.getR2RML().getR2rml() + "_" + "output.rdf";
+        String output = db2TriplesJob.getR2RML().getDirectory() + "/" + db2TriplesJob.getR2RML().getR2rml() + "_" + "output.n3";
         String r2rmlFile = db2TriplesJob.getR2RML().getDirectory() + "/" + db2TriplesJob.getR2RML().getR2rml();
 
+        // TODO: Revisar por que el formato de salida siempre es el mismo.
         if (db2TriplesJob.getMode() == "TURTLE"){
             rdfFormat = RDFFormat.TURTLE;
         }else if (db2TriplesJob.getMode() == "RDFXML"){
@@ -76,6 +81,7 @@ public class DB2TriplesService {
         System.out.println("Comenzando el trabajo");
         System.out.println("Fichero r2rml: " + r2rmlFile);
         System.out.println("Fichero de salida: " + output);
+        System.out.println(rdfFormat);
 
         db2TriplesJob.setStatus("running");
         db2TriplesJob.save();
@@ -96,7 +102,23 @@ public class DB2TriplesService {
             db2TriplesJob.save();
 
             System.out.println("Trabajo Terminado");
+            System.out.println("Insertar en el Virtuoso");
 
+            CollectorStreamTriples inputStream = new CollectorStreamTriples();
+            RDFDataMgr.parse(inputStream, output);
+
+            VirtGraph graph = new VirtGraph (baseURI, "jdbc:virtuoso://localhost:1111", "dba", "dba");
+
+            System.out.println("graph.isEmpty() = " + graph.isEmpty());
+            System.out.println("Add triples to graph Test10");
+
+            for (Triple triple : inputStream.getCollected()) {
+                graph.add(triple);
+            }
+
+            db2TriplesJob.setStatus("finished");
+            db2TriplesJob.save();
+            System.out.println("Finish!!!!!!");
 
         } catch (IOException e) {
             e.printStackTrace();

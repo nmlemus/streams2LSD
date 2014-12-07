@@ -93,5 +93,7 @@
     </orderEntry>
     <orderEntry type="module" module-name="RDB2LOD-cloud-grailsPlugins" />
     <orderEntry type="library" exported="" name="postgresql-9.3-1102-jdbc41" level="project" />
+    <orderEntry type="library" exported="" name="virt_jena2" level="project" />
+    <orderEntry type="library" exported="" name="virtjdbc4" level="project" />
   </component>
 </module>

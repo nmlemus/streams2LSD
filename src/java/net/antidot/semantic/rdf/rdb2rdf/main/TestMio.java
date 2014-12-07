@@ -49,9 +49,9 @@ public class TestMio {
         // Init parameters
         String mode = "r2rml";
         String baseURI = "http://foo.example/DB/";
-        String output = "/home/noel/output_test4.rdf";
+        String output = "/home/noel/output_test5.ttl";
         String r2rmlFile = "/home/noel/Conference_r2rmlMapping.n3";
-        RDFFormat rdfFormat = RDFFormat.TURTLE; // Turtle by default
+        RDFFormat rdfFormat = RDFFormat.N3; // Turtle by default
 
         boolean useNativeStore = false;
         boolean forceExistingRep = false;
