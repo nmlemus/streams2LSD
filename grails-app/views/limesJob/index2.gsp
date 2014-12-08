@@ -292,7 +292,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4">
-                                    <g:submitButton name="create" class="btn btn-primary" id="startButton" value="${message(code: 'default.button.noel.label', default: 'Run Job')}" />
+                                    <g:submitButton name="create" class="btn btn-primary" id="startButton" value="${message(code: 'default.button.noel.label', default: 'Start')}" />
                             </div><!-- /.col-lg-6 -->
 
                             <div class="col-sm-8">

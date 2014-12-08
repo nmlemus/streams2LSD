@@ -23,9 +23,11 @@ class User {
 	static mappedBy = [datasource: "user", limesjobs: "userlimes"]
 
 	static constraints = {
+		name(blank: false)
+		affiliation(blank: false)
+		email(blank: false, email: true)
 		username blank: false, unique: true
 		password blank: false, password: true
-		email(blank: false, email: true)
 	}
 
 	static mapping = {

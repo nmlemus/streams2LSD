@@ -31,6 +31,7 @@ class UserController {
         respond new User(params)
     }
 
+    // TODO: Hacer que cuando el usuario sea creado se le asigne el rol ROLE_USER
     @Transactional
     def save(User userInstance) {
         if (userInstance == null) {

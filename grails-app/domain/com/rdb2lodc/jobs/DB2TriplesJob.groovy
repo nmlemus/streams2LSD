@@ -21,10 +21,10 @@ class DB2TriplesJob {
 
 //	static	hasMany		= []	// tells GORM to associate other domain objects for a 1-n or n-m mapping
 //	static	mappedBy	= []	// specifies which property should be used in a mapping 
-	
+
     static	mapping = {
     }
-    
+
 	static	constraints = {
 		db2triplesJob_name(blank: false)
 		mode(inList: ['r2rml', 'dm'])
@@ -33,7 +33,7 @@ class DB2TriplesJob {
 		status(inList: ['initialized', 'running', 'finished', 'aborted'])
 		r2RML(nullable: true)
     }
-	
+
 	/*
 	 * Methods of the Domain Class
 	 */

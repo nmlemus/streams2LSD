@@ -24,6 +24,12 @@
 				<g:message code="home.label" />
 			</g:link>
 		</li>
+		<%--TODO: Hacer algo aqui para que el usuario que se cadastre tenga una interfaz mejor--%>
+		<li class="controller">
+			<g:link controller="user" action="create">
+				<g:message code="user.label" />
+			</g:link>
+		</li>
 		<li class="controller">
 			<g:link controller="dataSource" action="index">
 				<g:message code="dataSource.label" />
