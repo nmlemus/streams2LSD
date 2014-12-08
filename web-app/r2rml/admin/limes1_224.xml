@@ -1,0 +1,39 @@
+<LIMES>
+	<PREFIX>
+	</PREFIX>
+
+	<SOURCE>
+		<ID>http://localhost.com.br</ID>
+		<ENDPOINT>http://localhost.com.br</ENDPOINT>
+		<VAR>?a</VAR>
+		<PAGESIZE>1000</PAGESIZE>
+		<RESTRICTION>?a</RESTRICTION>
+		<PROPERTY>df:type</PROPERTY>
+	</SOURCE>
+
+	<TARGET>
+		<ID>http://localhost.com</ID>
+		<ENDPOINT>http://localhost.com</ENDPOINT>
+		<VAR>?b</VAR>
+		<PAGESIZE>1000</PAGESIZE>
+		<RESTRICTION>?b</RESTRICTION>
+		<PROPERTY>rdf:type</PROPERTY>
+<	/TARGET>
+
+<METRIC>
+	Levenstein
+</METRIC>
+
+<ACCEPTANCE>
+		<THRESHOLD>0.9</THRESHOLD>
+		<FILE>limes1_224acceptance.txt</FILE>
+		<RELATION>owl</RELATION>
+</ACCEPTANCE>
+
+<REVIEW>
+		<THRESHOLD>0.9</THRESHOLD>
+		<FILE>limes1_224review.txt</FILE>
+		<RELATION>owl: sameAs</RELATION>
+</REVIEW>
+
+</LIMES>

@@ -8,13 +8,6 @@
 <body>
 
 	<section id="intro" class="first">
-		<h1>Welcome to Kickstart with Bootstrap 3.0.3 for Grails 2.3</h1>
-		<p>
-
-		</p>
-		<img class="frontpageImage" style="width:1000px;height:600px" align="top" src="${resource(dir: 'images',file: 'application.png')}" />
-
-
 		<h2>Introduction</h2>
 		<p>
 			Kickstart is an extension for Grails in order to start your
@@ -26,6 +19,13 @@
 			general GSPs pages (e.g., about.gsp), a minimal logging/orientation
 			Filter, and a language switcher.
 		</p>
+		<p>
+
+		</p>
+		<img class="frontpageImage" style="width:1000px;height:600px" align="top" src="${resource(dir: 'images',file: 'application.png')}" />
+
+
+
 
 	</section>
 

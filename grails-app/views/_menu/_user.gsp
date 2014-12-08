@@ -1,6 +1,6 @@
 <%--<ul class="nav pull-right">--%>
 	<li class="dropdown">
-	
+
 <%--<sec:ifNotLoggedIn>--%>
 
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -12,19 +12,16 @@
 		<ul class="dropdown-menu" role="menu">
 			<li class="form-container">
 				<%-- <form role="form" id='loginForm' class='form-horizontal' action='${postUrl}' method='POST' autocomplete='off'>--%>
-				<form role="form" id='loginForm' action='${postUrl}' method='POST' accept-charset="UTF-8">
+				<g:form controller="login" action="auth">
 				<%--<form action="/j_spring_security_check" method="post" accept-charset="UTF-8">--%>
 <%--				<form action="login" method="post" accept-charset="UTF-8">--%>
 					<input class='form-control col-md-4' style="margin-bottom: 15px;" type="text"		placeholder="Username"  name='j_username' id='username'>
 					<input type='password' class='form-control col-md-4' name='j_password' id='password' style="margin-bottom: 15px;" placeholder="Password" >
 					<input style="float: left; margin-right: 10px;" type="checkbox" name="remember-me" id="remember-me" value="1">
 					<label class="string optional" for="user_remember_me"> Remember me</label>
-					<div class="form-group">
-						<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>
-					</div>
-					<%--<input class="btn btn-primary btn-block" type="submit" id="submit" value="Sign In">--%>
+					<input class="btn btn-primary btn-block" type="submit" id="submit" value="Sign In">
 					<%--<input type='submit' id="submit" value='${message(code: "springSecurity.login.button")}'/>--%>
-            </form>
+            	</g:form>
         </li>
         <li class="divider"></li>
         <li class="button-container">

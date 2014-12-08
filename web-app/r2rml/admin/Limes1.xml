@@ -1,0 +1,35 @@
+<LIMES>
+<PREFIX>
+</PREFIX>
+<LIMES>
+<PREFIX>
+</PREFIX>
+<SOURCE>
+<ID>http://localhost.com.br</ID>
+<ENDPOINT>http://localhost.com.br</ENDPOINT>
+</SOURCE>
+<TARGET>
+</TARGET>
+<METRIC>
+</METRIC>
+<ACCEPTANCE>
+</ACCEPTANCE>
+<REVIEW>
+</REVIEW>
+<LIMES>
+	<PREFIX>
+	</PREFIX>
+
+	<SOURCE>
+		<ID>http://localhost.com.br</ID>
+		<ENDPOINT>http://localhost.com.br</ENDPOINT>
+	</SOURCE>
+
+<TARGET>
+</TARGET>
+<METRIC>
+</METRIC>
+<ACCEPTANCE>
+</ACCEPTANCE>
+<REVIEW>
+</REVIEW>

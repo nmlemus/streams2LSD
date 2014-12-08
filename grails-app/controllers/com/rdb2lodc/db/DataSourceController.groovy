@@ -1,6 +1,7 @@
 package com.rdb2lodc.db
 
 import com.rdb2lodc.security.User
+import grails.converters.JSON
 import grails.plugins.springsecurity.Secured
 import grails.plugins.springsecurity.SpringSecurityService
 
@@ -169,5 +170,18 @@ class DataSourceController {
         params.max = Math.min(max ?: 10, 100)
         List<DataSource> dataSource = DataSource.findAllByUser(user1[0])
         respond dataSource, model:[dataSourceInstanceCount: dataSource.size()]
+    }
+
+    def sources(){
+
+    }
+
+    def dataSources = {
+        def sources = DataSource.list()
+        def jsonCells = sources.collect {
+            [cell: [it.id, it.ds_name, it.ds_type, it.ds_host, it.ds_port], ]
+        }
+        def jsonData= [rows: jsonCells]
+        render jsonData as JSON
     }
 }

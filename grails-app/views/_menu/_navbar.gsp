@@ -24,10 +24,12 @@
 
     	<ul class="nav navbar-nav navbar-right">
  			<%--<g:render template="/_menu/search"/>--%>
-			<g:render template="/_menu/admin"/>														
+			<%--<g:render template="/_menu/admin"/>
 			<g:render template="/_menu/info"/>														
 			<g:render template="/_menu/user"/><!-- NOTE: the renderDialog for the "Register" modal dialog MUST be placed outside the NavBar (at least for Bootstrap 2.1.1): see bottom of main.gsp -->
-			<g:render template="/_menu/language"/>														
+			<g:render template="/_menu/language"/>--%>
+			<g:render template="/_menu/user"/>
+			<g:render template="/_common/topbar"/>
 	    </ul>			
 
 		</div>
